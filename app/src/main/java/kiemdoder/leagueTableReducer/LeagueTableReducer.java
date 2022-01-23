@@ -3,7 +3,9 @@ package kiemdoder.leagueTableReducer;
 import kiemdoder.leagueTableReducer.renderer.LeagueTableRenderer;
 import kiemdoder.leagueTableReducer.renderer.TextLeagueTableRenderer;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -71,7 +73,7 @@ public class LeagueTableReducer {
             }
         }
 
-        final String matches;
+        String matches = "";
         if (inputFile.isPresent()) {
             final Path filePath = Paths.get(inputFile.get());
             try {
@@ -82,13 +84,21 @@ public class LeagueTableReducer {
                 return;
             }
         } else {
-            matches =
-                    """
-                            team2 3, team4 3
-                            team1 1, team three 0
-                            team2 1, team three 1
-                            team1 3, team4 1
-                            team2 4, team5 0""";
+            // Read the matches data from stdin
+            byte[] buf = new byte[1024];
+            try(ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
+                InputStream is = System.in;
+                for (int len = is.read(buf); len >= 0; len = is.read(buf)) {
+                    bos.write(buf, 0, len);
+                }
+                matches = bos.toString();
+                if (matches.length() == 0) {
+                    System.out.println("No input from stdin, nothing to do");
+                    return;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
         }
 
