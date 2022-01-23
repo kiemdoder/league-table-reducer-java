@@ -2,12 +2,9 @@ package kiemdoder.leagueTableReducer;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class LeagueTableReducerTest {
 
@@ -38,9 +35,9 @@ class LeagueTableReducerTest {
         assertEquals(leaguePositions.get(4).getPoints(), 0);
     }
 
-    @Test
-    void commandLine() {
-        String[] args = {"--matches", "test-files/matches.txt", "--output", "test-files/output/table.txt"};
-        LeagueTableReducer.main(args);
-    }
+//    @Test
+//    void commandLine() {
+//        String[] args = {"--matches", "test-files/matches.txt", "--output", "test-files/output/table.txt"};
+//        LeagueTableReducer.main(args);
+//    }
 }
