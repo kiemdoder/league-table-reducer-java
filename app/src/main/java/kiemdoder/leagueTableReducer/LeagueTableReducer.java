@@ -38,7 +38,7 @@ public class LeagueTableReducer {
                 --matches <matches-txt-file>
                 --output <output-file>
                 
-                When --input is not specified the rover instructions will be read from stdin
+                When --input is not specified the matches played will be read from stdin
                 """;
         System.out.println(usage);
     }
