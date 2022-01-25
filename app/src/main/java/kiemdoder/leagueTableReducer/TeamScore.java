@@ -6,6 +6,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
+/**
+ * The score that a team got for a match.
+ */
 public class TeamScore {
     private final String team;
 
@@ -45,6 +48,9 @@ public class TeamScore {
         this.score = score;
     }
 
+    /**
+     * Return the league points for a match played by this team and the specified opponents.
+     */
     public int leaguePointsFromMatchPlayedAgainst(TeamScore opponentsScore) {
         if (score > opponentsScore.score) {
             return 3;
@@ -55,6 +61,9 @@ public class TeamScore {
         return 0;
     }
 
+    /**
+     * Create a TeamScore from its text representation.
+     */
     public static TeamScore parse(String teamScoreStr) {
         final Pattern teamScorePattern = Pattern.compile("([A-Za-z\\s\\d]*)\\s(\\d+)");
         final Matcher matcher = teamScorePattern.matcher(teamScoreStr.trim());

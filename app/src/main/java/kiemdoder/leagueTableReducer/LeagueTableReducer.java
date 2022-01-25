@@ -13,6 +13,10 @@ import java.util.*;
 
 public class LeagueTableReducer {
 
+    /**
+     * Take the matches played in the matchesPlayed text and reduce it to a sorted league table.
+     * @param matchesPlayed The text listing the matches played.
+     */
     public static LeagueTable reduceMatchesToLeaguePositions(String matchesPlayed) {
         final LeagueTable table = new LeagueTable();
 
@@ -27,7 +31,16 @@ public class LeagueTableReducer {
     }
 
     private static void printUsage() {
-        System.out.println("Usage: league-table-reducer --matches <matches-txt-file>");
+        String usage = """
+                ./bin/app <options>
+                
+                Options:
+                --matches <matches-txt-file>
+                --output <output-file>
+                
+                When --input is not specified the rover instructions will be read from stdin
+                """;
+        System.out.println(usage);
     }
 
     public static void main(String[] args) {
@@ -85,6 +98,7 @@ public class LeagueTableReducer {
             }
         } else {
             // Read the matches data from stdin
+            System.out.println("Reading matches played from stdin");
             byte[] buf = new byte[1024];
             try(ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
                 InputStream is = System.in;
