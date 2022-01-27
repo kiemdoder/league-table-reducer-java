@@ -11,6 +11,12 @@ import java.util.stream.Stream;
  */
 public class TeamScore {
     private final String team;
+    private final int score;
+
+    public TeamScore(String team, int score) {
+        this.team = team;
+        this.score = score;
+    }
 
     public String getTeam() {
         return team;
@@ -39,13 +45,6 @@ public class TeamScore {
     @Override
     public int hashCode() {
         return Objects.hash(team, score);
-    }
-
-    private final int score;
-
-    public TeamScore(String team, int score) {
-        this.team = team;
-        this.score = score;
     }
 
     /**

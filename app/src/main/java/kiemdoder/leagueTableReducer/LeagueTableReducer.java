@@ -31,15 +31,12 @@ public class LeagueTableReducer {
     }
 
     private static void printUsage() {
-        String usage = """
-                ./bin/app <options>
-                
-                Options:
-                --matches <matches-txt-file>
-                --output <output-file>
-                
-                When --input is not specified the matches played will be read from stdin
-                """;
+        String usage =
+                "./bin/app <options>\n" +
+                "Options:\n" +
+                "--matches <matches-txt-file>\n" +
+                "--output <output-file>\n" +
+                "When --input is not specified the matches played will be read from stdin";
         System.out.println(usage);
     }
 
