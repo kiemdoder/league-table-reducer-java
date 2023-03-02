@@ -8,7 +8,7 @@ public class LeagueTable {
     /**
      * Update the league table by adding points to a team
      */
-    public void update(String team, int points) {
+    public void addPoints(String team, int points) {
         if (state.containsKey(team)) {
             final int currentPoints = state.get(team);
             state.put(team, currentPoints + points);

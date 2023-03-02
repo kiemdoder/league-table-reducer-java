@@ -23,8 +23,8 @@ public class LeagueTableReducer {
         TeamScore.parseMatches(matchesPlayed).forEach(score -> {
             final TeamScore team1 = score[0];
             final TeamScore team2 = score[1];
-            table.update(team1.getTeam(), team1.leaguePointsFromMatchPlayedAgainst(team2));
-            table.update(team2.getTeam(), team2.leaguePointsFromMatchPlayedAgainst(team1));
+            table.addPoints(team1.getTeam(), team1.leaguePointsFromMatchPlayedAgainst(team2));
+            table.addPoints(team2.getTeam(), team2.leaguePointsFromMatchPlayedAgainst(team1));
         });
 
         return table;

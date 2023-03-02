@@ -11,9 +11,9 @@ class LeagueTableTest {
     @Test
     void updateTable() {
         LeagueTable table = new LeagueTable();
-        table.update("team1", 3);
-        table.update("team1", 3);
-        table.update("team2", 1);
+        table.addPoints("team1", 3);
+        table.addPoints("team1", 3);
+        table.addPoints("team2", 1);
 
         List<TeamLeaguePoints> leaguePositions = table.leaguePositions();
         assertEquals(leaguePositions.size(), 2);
@@ -28,9 +28,9 @@ class LeagueTableTest {
     @Test
     void leaguePositions() {
         LeagueTable table = new LeagueTable();
-        table.update("team2", 10);
-        table.update("team1", 20);
-        table.update("team3", 5);
+        table.addPoints("team2", 10);
+        table.addPoints("team1", 20);
+        table.addPoints("team3", 5);
 
         List<TeamLeaguePoints> leaguePositions = table.leaguePositions();
         assertEquals(leaguePositions.size(), 3);
